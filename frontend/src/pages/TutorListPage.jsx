@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Alerta from "../components/Alerta";
 import { useCarregar } from "../hooks/useCarregar";
 import { tutorService } from "../services/tutorService";
+import Carregando from "../components/Carregando";
 
 export default function TutorListPage() {
   const { dados: tutores, carregando, erro, recarregar } = useCarregar(tutorService.listar);
@@ -27,7 +28,7 @@ export default function TutorListPage() {
       </div>
 
       <Alerta>{erro || erroExclusao}</Alerta>
-      {carregando && <p>Carregando...</p>}
+      {carregando && <Carregando />}
 
       {!carregando && !erro && tutores?.length === 0 && (
         <p className="vazio">Nenhum tutor cadastrado ainda.</p>

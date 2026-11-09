@@ -5,10 +5,9 @@ export default function Layout() {
     <>
       <header className="topo">
         <div className="container topo-conteudo">
-          <Link to="/tutores" className="marca">🐾 Patas & Cia</Link>
-          <nav>
-            <Link to="/tutores">Tutores</Link>
-          </nav>
+          <Link to="/tutores" className="marca">
+            <span className="marca-icone">🐾</span> Patas & Cia
+          </Link>
         </div>
       </header>
       <main className="container">

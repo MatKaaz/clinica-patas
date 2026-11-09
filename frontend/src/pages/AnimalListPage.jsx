@@ -4,6 +4,7 @@ import Alerta from "../components/Alerta";
 import { useCarregar } from "../hooks/useCarregar";
 import { animalService } from "../services/animalService";
 import { tutorService } from "../services/tutorService";
+import Carregando from "../components/Carregando";
 
 export default function AnimalListPage() {
   const { tutorId } = useParams();
@@ -37,7 +38,7 @@ export default function AnimalListPage() {
       </div>
 
       <Alerta>{tutor.erro || animais.erro || erroExclusao}</Alerta>
-      {animais.carregando && <p>Carregando...</p>}
+      {animais.carregando && <Carregando />}
 
       {!animais.carregando && !animais.erro && animais.dados?.length === 0 && (
         <p className="vazio">Este tutor ainda não possui animais cadastrados.</p>
